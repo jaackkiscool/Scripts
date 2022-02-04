@@ -1,6 +1,6 @@
 -- Chat Fucker
 
--- This project is REALLY RARE and could kill ROBLOX ChatBox. (but the fun thing is that the script itself is 5 lines of code)
+-- This script is REALLY RARE and could kill ROBLOX ChatBox. (but the funny thing is that the script itself is 5 lines of code)
 
 --Boronide™ Free Obfuscation, v0.3.3
 
