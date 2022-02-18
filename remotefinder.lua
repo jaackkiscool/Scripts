@@ -1,4 +1,4 @@
--- Simple Remote Finder (not a remotespy)
+-- Simple Remote Finder (not a Remote Spy)
 
 local p = game.Players.LocalPlayer
 local m = p:GetMouse()
