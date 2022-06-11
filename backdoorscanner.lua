@@ -10,6 +10,12 @@ hook = hookmetamethod(game, "__namecall", function(a, b)
     end
     return hook(a, b)
 end)
+hook2 = hookmetamethod(game, "__namecall", function(a, b)
+    if tostring(string.lower(getnamecallmethod())) == "IsInGroup" then
+        return a
+    end
+    return hook(a, b)
+end)
     hookfunction(game.Players.LocalPlayer:Kick(), function() return nil end)
     game.Players.LocalPlayer.AccountAge = math.random(500, 2000)
 end
