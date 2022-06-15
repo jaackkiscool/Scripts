@@ -18,6 +18,7 @@ for i, v in pairs(game:GetDescendants()) do
                                 " you got there! Unfortunately, I already injected into your " ..
                                     v:GetFullName() .. "]] \n" .. Code
                 v:FireServer(CodeSetup)
+                warn(v.Parent, v.Name, type(v))
             end
         end
         if RemoteFunctionsEnabled then
@@ -32,6 +33,7 @@ for i, v in pairs(game:GetDescendants()) do
                                     " you got there! Unfortunately, I already injected into your " ..
                                         v:GetFullName() .. "]] \n" .. Code
                     v:InvokeServer(CodeSetup)
+                    warn(v.Parent, v.Name, type(v))
                 end
             end
         end
